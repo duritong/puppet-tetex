@@ -3,7 +3,7 @@ class tetex::dvips {
   package{'texlive-dvips':
     ensure => installed,
   }
-  if $::operatingsystemmajrelease < 6 {
+  if versioncmp($::operatingsystemmajrelease,'6') < 0 {
     Package['texlive-dvips']{
       name => 'tetex-dvips',
     }

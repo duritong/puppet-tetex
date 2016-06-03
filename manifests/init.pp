@@ -2,7 +2,7 @@ class tetex {
   package{'texlive':
     ensure => installed,
   }
-  if $::operatingsystemmajrelease < 6 {
+  if versioncmp($::operatingsystemmajrelease,'6') < 0 {
     Package['texlive']{
       name => 'tetex',
     }
